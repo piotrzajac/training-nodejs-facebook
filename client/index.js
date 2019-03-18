@@ -2,8 +2,9 @@ const express = require('express')
 const app = express()
 
 const posts = [
-  { id: "d5aa72f1-bd5c-5da5-a396-27029317ed8f"},
-  { id: "9633168e-4c60-5319-8712-5e675068bcde"}
+    { body: 'post numer 1' },
+    { body: 'post numer 2' },
+    { body: 'post numer 3' },
 ]
 
 app.get('/posts', (req, res) => res.json(posts))
