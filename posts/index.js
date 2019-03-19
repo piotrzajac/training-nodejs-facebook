@@ -4,6 +4,8 @@ const chokidar = require("chokidar")
 const fs = require('fs')
 const app = express()
 
+require('dotenv').config({ path: './config/posts.env'})
+
 function loadJSON(filename){
     return JSON.parse(fs.readFileSync(filename).toString())
 }
@@ -24,6 +26,6 @@ app.get('/posts/:id', (req, res) => {
 })
 app.get('*', (req, res) => res.end('error'))
 
-app.listen(3001, () => {
-    console.log(`Server has started on http://localhost:3001`)
+app.listen(process.env.PORT, () => {
+    console.log(`Server has started on http://localhost:${process.env.PORT}`)
 })

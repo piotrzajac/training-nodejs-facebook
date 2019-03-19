@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "cors": "^2.8.5",
+        "dotenv": "^7.0.0",
         "express": "^4.16.4",
         "node-fetch": "^2.3.0",
         "page": "^1.11.4"

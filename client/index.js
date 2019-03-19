@@ -1,7 +1,9 @@
 const express = require('express')
 const cors = require('cors')
-const fetch = require('node-fetch')
+const fetch = require('node-fetch') // axios as alternative
 const app = express()
+
+require('dotenv').config({ path: './config/client.env'})
 
 const postsAddress = 'http://localhost:3001/posts'
 
@@ -21,6 +23,6 @@ app.get('/posts/:id', async (req, res) => {
 })
 app.get('*', (req, res) => res.end('error'))
 
-app.listen(3000, () => {
-    console.log(`Server has started on http://localhost:3000`)
+app.listen(process.env.PORT, () => {
+    console.log(`Server has started on http://localhost:${process.env.PORT}`)
 })
