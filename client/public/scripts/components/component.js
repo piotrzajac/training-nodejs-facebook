@@ -1,6 +1,14 @@
 export class Component {
     $element = null
-    template = ''
+    data = null
+
+    template() {
+        return ''
+    }
+
+    setData(data) {
+        this.data = data
+    }
 
     compile(html) {
         const document = new DOMParser().parseFromString(html, 'text/html')
@@ -9,7 +17,7 @@ export class Component {
     }
 
     render($holder) {
-        this.$element = this.compile(this.template)
+        this.$element = this.compile(this.template())
         $holder.appendChild(this.$element)
     }
 }

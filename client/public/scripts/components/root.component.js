@@ -2,7 +2,9 @@ import { Component } from "./component";
 import { PostListComponent } from "./post-list.component";
 
 export class RootComponent extends Component {
-    template = `<div class="root"></div>`
+    template() {
+        return `<div class="root"></div>`
+    }
 
     render($holder) {
         super.render($holder);
