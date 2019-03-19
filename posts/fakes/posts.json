@@ -1,5 +1,6 @@
 [
     { "id":"1", "body": "post number 1" },
     { "id":"2", "body": "post number 2" },
+    { "id":"4", "body": "post number 4" },
     { "id":"3", "body": "post number 3" }
 ]
