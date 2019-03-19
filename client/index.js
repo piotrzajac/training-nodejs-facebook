@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 const posts = [
@@ -7,6 +8,7 @@ const posts = [
     { body: 'post numer 3' },
 ]
 
+app.use(cors())
 app.get('/posts', (req, res) => res.json(posts))
 app.get('*', (req, res) => res.end('error'))
 

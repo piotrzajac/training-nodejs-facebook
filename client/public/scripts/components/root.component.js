@@ -7,7 +7,7 @@ export class RootComponent extends Component {
     }
 
     render($holder) {
-        super.render($holder);
+        super.render($holder)
         const c = new PostListComponent()
         c.render(this.$element)
     }
