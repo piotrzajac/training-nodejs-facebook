@@ -1,21 +1,23 @@
 const express = require('express')
 const cors = require('cors')
+const fetch = require('node-fetch')
 const app = express()
 
-const posts = [
-    { id:'1', body: 'post numer 1' },
-    { id:'2', body: 'post numer 2' },
-    { id:'3', body: 'post numer 3' },
-]
+const postsAddress = 'http://localhost:3001/posts'
 
 app.use(cors())
-app.get('/posts', (req, res) => res.json(posts))
-app.get('/posts/:id', (req, res) => {
+app.get('/posts', async (req, res) => {
+    const response = await fetch(postsAddress)
+    const posts = await response.json()
+
+    res.json(posts)
+})
+app.get('/posts/:id', async (req, res) => {
     const postId = req.params.id
-    const result = posts.find((post) => {
-        return post.id === postId
-    })
-    return res.json(result)
+    const response = await fetch(`${postsAddress}/${postId}`)
+    const post = await response.json()
+
+    return res.json(post)
 })
 app.get('*', (req, res) => res.end('error'))
 
