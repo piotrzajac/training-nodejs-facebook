@@ -2,12 +2,12 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+require('dotenv').config({ path: './config/auth.env' })
+
 const app = express()
 
-require('dotenv').config({ path: './config/auth.env'})
-
 app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 require('./web/routing/router')(app)
 

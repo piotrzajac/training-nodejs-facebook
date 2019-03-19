@@ -1,19 +1,17 @@
-export async function fetchPostList()
-{
+export async function fetchPostList() {
     try {
         const response = await fetch('http://localhost:3000/posts')
         return response.json()
-    } catch {
+    } catch (err) {
         return null
     }
 }
 
-export async function fetchPostById(postId)
-{
+export async function fetchPostById(postId) {
     try {
         const response = await fetch(`http://localhost:3000/posts/${postId}`)
         return response.json()
-    } catch {
+    } catch (err) {
         return null
     }
 }

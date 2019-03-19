@@ -1,17 +1,14 @@
-const authAddress = 'http://localhost:3002';
+const authAddress = 'http://localhost:3002'
 
-export async function authenticate(login, password)
-{
+export async function authenticate(login, password) {
     try {
         const response = await fetch(
-            authAddress,
-            {
+            authAddress, {
                 method: "POST",
-                body: new URLSearchParams({ "login": login, "password": password }).toString(),
-                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                body: new URLSearchParams({ "login": login, "password": password })
             })
         return response.json()
-    } catch {
+    } catch (err) {
         return null
     }
 }

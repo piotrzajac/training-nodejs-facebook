@@ -5,15 +5,15 @@ const fs = require('fs')
 
 const router = express.Router()
 
-const salt = 'piu2h34piuhdfsipuhiuwheru2n34kjndsoij';
+const salt = 'piu2h34piuhdfsipuhiuwheru2n34kjndsoij'
 
 function encode(text) {
     return crypto.createHmac('sha256', salt)
         .update(text)
-        .digest('hex');
+        .digest('hex')
 }
 
-function loadJSON(filename){
+function loadJSON(filename) {
     return JSON.parse(fs.readFileSync(filename).toString())
 }
 
@@ -24,8 +24,10 @@ chokidar.watch('./fakes').on('all', () => {
 
 router.post('/', (req, res) => {
     const { login, password } = req.body
+    console.log(login)
+    console.log(password)
     const isAuthorized = users.find((user) => {
-        return user.login === login && user.password === password
+        return user.login === login && user.password === encode(password)
     })
 
     res.status(isAuthorized ? 200 : 401)
