@@ -7,13 +7,12 @@ export class PostListComponent extends Component {
         return `<div class="post-list"></div>`
     }
 
-
-    async render($holder) {
+    render($holder) {
         super.render($holder)
 
-        const posts = await fetchPostList()
+        const posts = this.data
 
-        if(Array.isArray(posts)) {
+        if (Array.isArray(posts)) {
             posts.forEach((post) => {
                 const c = new PostComponent()
                 c.setData(post)
