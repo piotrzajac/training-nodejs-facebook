@@ -1,6 +1,4 @@
 [
-    { "id":"1", "login": "aaa", "password": "aaa" },
-    { "id":"2", "login": "bbb", "password": "bbb" },
-    { "id":"4", "login": "ccc", "password": "ccc" },
-    { "id":"3", "login": "ddd", "password": "ddd" }
+    { "id": "1", "login": "admin", "password": "50fbb8cd189e9203b4791ef04073cb435c28904ae77c5e6a063ff446a6fdd62f" },
+    { "id": "2", "login": "root", "password": "7615c032cd4a3f107cc50991e4cd68112db2865140552ba43dcc4d749d381edc" }
 ]
