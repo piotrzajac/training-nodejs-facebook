@@ -7,3 +7,13 @@ export async function fetchPostList()
         return null
     }
 }
+
+export async function fetchPostById(postId)
+{
+    try {
+        const response = await fetch(`http://localhost:3000/posts/${postId}`)
+        return response.json()
+    } catch {
+        return null
+    }
+}
