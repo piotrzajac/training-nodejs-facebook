@@ -2,14 +2,17 @@ import page from 'page';
 import { PostListComponent } from "./components/post-list.component";
 import { PostComponent } from "./components/post.component";
 import { fetchPostById } from "./services/posts.service";
+import { authenticate } from './services/auth.service';
 
 
-page('*', (context, next) => {
+page('*', async (context, next) => {
     console.log(context.path, context.params)
 
     const $outlet = document.querySelector('router-outlet')
     $outlet.innerHTML = ''
 
+    await authenticate("aaa", "aaa")
+    
     next()
 })
 
