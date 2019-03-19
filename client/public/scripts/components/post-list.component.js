@@ -13,10 +13,14 @@ export class PostListComponent extends Component {
 
         const posts = await fetchPostList()
 
-        posts.forEach((post) => {
-            const c = new PostComponent()
-            c.setData(post)
-            c.render(this.$element)
-        });
+        if(Array.isArray(posts)) {
+            posts.forEach((post) => {
+                const c = new PostComponent()
+                c.setData(post)
+                c.render(this.$element)
+            });
+        } else {
+            this.$element.appendChild(document.createTextNode("No posts"))
+        }
     }
 }
