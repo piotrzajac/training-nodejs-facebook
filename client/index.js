@@ -3,13 +3,14 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 var morgan = require('morgan')
 const path = require('path')
+const helmet = require('helmet')
 
 require('dotenv').config({
     path: path.join(__dirname, './config/client.env')
 })
 
 const app = express()
-
+app.use(helmet())
 app.use(express.static(path.join(__dirname, './dist')))
 app.use(morgan('combined'))
 app.use(cors())
