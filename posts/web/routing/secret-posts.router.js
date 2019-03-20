@@ -2,20 +2,16 @@ const express = require('express')
 
 const router = express.Router()
 
-const { fetchSecretPosts } = require('../providers/fake-posts.provider')
+const { fetchPosts, fetchPost } = require('../providers/posts.provider')
 const { authenticate } = require('../middleware/authenticate')
 
-router.post('/posts', authenticate, (req, res) => {
-    const posts = fetchSecretPosts()
+router.post('/posts', authenticate, async (req, res) => {
+    const posts = await fetchPosts()
     res.json(posts)
 })
-router.post('/posts/:id', authenticate, (req, res) => {
-    const postId = req.params.id
-    const posts = fetchSecretPosts()
-    const result = posts.find((post) => {
-        return post.id === postId
-    })
-    return res.json(result)
+router.post('/posts/:id', authenticate, async (req, res) => {
+    const post = await fetchPost(req.params.id)
+    return res.json(post)
 })
 
 module.exports = (app) => {

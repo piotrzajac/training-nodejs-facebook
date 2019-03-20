@@ -1,0 +1,17 @@
+{
+  "name": "seeds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "posts.seed.js",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "mongoose": "^5.4.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "seed": "node posts.seed.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

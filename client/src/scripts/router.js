@@ -13,11 +13,7 @@ page('*', async(context, next) => {
     next()
 })
 
-page('/', () => {
-    page.redirect('/posts')
-})
-
-page('/posts', async() => {
+page('/', async() => {
     const $outlet = document.querySelector('router-outlet')
 
     const posts = await fetchSecretPostList()
