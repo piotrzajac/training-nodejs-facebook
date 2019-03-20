@@ -16,6 +16,7 @@ app.use(morgan('combined'))
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+require('./web/routing/debug.router')(app)
 require('./web/routing/posts.router')(app)
 require('./web/routing/secret-posts.router')(app)
 
