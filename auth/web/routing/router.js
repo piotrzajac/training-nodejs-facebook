@@ -24,8 +24,6 @@ chokidar.watch('./fakes').on('all', () => {
 
 router.post('/', (req, res) => {
     const { login, password } = req.body
-    console.log(login)
-    console.log(password)
     const isAuthorized = users.find((user) => {
         return user.login === login && user.password === encode(password)
     })
